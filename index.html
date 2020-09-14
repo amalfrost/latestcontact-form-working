@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form class="contactform" id="submit-form" action="" >
+      
+          <label for=""> Name</label>
+          <input type="text" id="" name="name" placeholder="Your name.."><br>
+          <label for="">E-mail</label>
+          <input type="text" name=" Email" id="">
+    
+          <label >message</label>
+          <textarea id="" name="message" placeholder="Write something.." ></textarea>
+      
+          <button class="submitbuttoon">send message</button>
+      
+        </form>
+      </div>
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycby8IZdREWlXEqRsgCkEwteIt09yVZu4aaK0DOpjuW1-u5Fczsjy/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>
